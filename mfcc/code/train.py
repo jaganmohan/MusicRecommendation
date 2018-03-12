@@ -2,11 +2,6 @@
 
 from __future__ import print_function
 
-__author__ = "Matan Lachmish"
-__copyright__ = "Copyright 2016, Tel Aviv University"
-__version__ = "1.0"
-__status__ = "Development"
-
 import tensorflow as tf
 import numpy as np
 import pickle

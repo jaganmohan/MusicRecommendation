@@ -2,11 +2,6 @@
 
 from __future__ import print_function
 
-__author__ = "Matan Lachmish"
-__copyright__ = "Copyright 2016, Tel Aviv University"
-__version__ = "1.0"
-__status__ = "Development"
-
 import numpy as np
 from matplotlib import pyplot as plt
 from tsne import bh_sne
@@ -80,9 +75,6 @@ if __name__ == "__main__":
     #save data and lables
     with open("data", 'w') as f:
         f.write(pickle.dumps(data.values()))
-
-    with open("labels", 'w') as f:
-        f.write(pickle.dumps(array(labels)))
 
     # print sizes
     print("Data set size: " + str(len(data.keys())))
