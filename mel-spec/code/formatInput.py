@@ -37,6 +37,12 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         die_with_usage()
 
+    # Checking python version for pickle compatibility
+    if sys.version_info[0] >= 3
+      is_python3 = True
+    else:
+      is_python3 = False
+
     #Load Data
     data = {}
     labels = []
@@ -51,11 +57,14 @@ if __name__ == "__main__":
                 file_path = os.path.join(root, filename)
                 # print('\t- file %s (full path: %s)' % (filename, file_path))
 
-                with open(file_path, 'r') as f:
+                with open(file_path, 'rb') as f:
                     try:
                         soundId = os.path.splitext(filename)[0]
                         content = f.read()
-                        pp = pickle.loads(content)
+                        if is_python3:
+                          pp = pickle.loads(content,encoding='latin1')
+                        else: 
+                          pp = pickle.loads(content)
                         pp = np.asarray(pp)
                         # pp = np.delete(pp, 1, axis=2)
                         data[soundId] = pp
